@@ -1,0 +1,39 @@
+:root {
+  --color-dark-grey: #24232c;
+  --color-grey: #817d92;
+  --color-almost-white: #e6e5ea;
+  --color-very-dark-grey: #18171f;
+  --color-neon-green: #a4ffaf;
+  --color-red: #f64a4a;
+  --color-orange: #fb7c58;
+  --color-yellow: #f8cd65;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./assets/fonts/static/JetBrainsMono-Bold.ttf") format("truetype");
+  /* font-weight: bold;
+  font-style: normal; */
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.heading-l {
+  font-size: 32px;
+  line-height: 43px;
+  font-weight: bold;
+}
+
+.body-text {
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: bold;
+}
+
+.heading-m {
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: bold;
+}

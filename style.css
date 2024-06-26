@@ -23,11 +23,11 @@
 
 body {
   font-family: "JetBrains Mono", monospace;
-  background-color: var(--color-dark-grey);
+  background-color: var(--color-very-dark-grey);
 }
 
 .container {
-  background-color: rgb(146, 170, 7);
+  /* background-color: rgb(146, 170, 7); */
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -35,7 +35,7 @@ body {
 }
 
 .app {
-  background-color: red;
+  /* background-color: red; */
   width: 33.75rem;
   max-height: 39.5rem;
   display: flex;
@@ -94,4 +94,71 @@ body {
   width: 1.3125rem;
   height: 1.5rem;
   color: white;
+}
+
+.options {
+  background-color: var(--color-dark-grey);
+  width: 33.75rem;
+  height: 33rem;
+}
+
+.char-length {
+  /* background-color: blue; */
+  height: 5.4375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.char-length-number {
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.6875rem;
+}
+
+.char-num {
+  color: var(--color-neon-green);
+}
+
+.range-div {
+  height: 1.75rem;
+}
+
+.inputRange {
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-neon-green) 50%,
+    var(--color-very-dark-grey) 50%
+  );
+  cursor: pointer;
+}
+
+/* Thumb: for Chrome, Safari, Edge */
+.inputRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--color-almost-white);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.inputRange::-webkit-slider-thumb:hover {
+  border: 0.125rem solid var(--color-neon-green);
+  background: var(--color-dark-grey);
+}
+
+/* Thumb: for Firefox */
+.inputRange::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #333333;
+  border-radius: 50px;
+  background: #06b6d4;
 }

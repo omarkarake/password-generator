@@ -35,7 +35,7 @@ body {
 }
 
 .app {
-  /* background-color: red; */
+  margin-top: 8.3125rem;
   width: 33.75rem;
   max-height: 39.5rem;
   display: flex;
@@ -65,6 +65,12 @@ body {
   color: var(--color-grey);
 }
 
+.generator {
+  margin-top: 1.9375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 .output {
   background-color: var(--color-dark-grey);
   width: 33.75rem;
@@ -260,6 +266,12 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.generate-btn:hover {
+  background-color: transparent;
+  color: var(--color-neon-green);
+  border: 2px solid var(--color-neon-green);
 }
 
 .generate {

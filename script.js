@@ -69,6 +69,12 @@ function generatePassword() {
   let characterPool = "";
   let password = "";
   const length = parseInt(lengthInput);
+  if (length <= 0) {
+    generatedPassElement.textContent = "Please increase character length";
+    if (generatedPassElement.textContent.length > 20)
+      generatedPassElement.style.fontSize = "12px";
+    return;
+  }
 
   if (document.querySelector(".checkbox1").classList.contains("checked-box")) {
     characterPool += uppercaseLetters;

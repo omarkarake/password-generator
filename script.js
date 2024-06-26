@@ -1,22 +1,27 @@
-const inputRange = document.getElementById("inputRange");
+const generatedPassElement = document.querySelector(".generated-pass");
+const rangeInput = document.getElementById("inputRange");
 let charCount = document.getElementById("char-count");
-const checked = document.querySelectorAll(".checkbox");
+const checkboxes = document.querySelectorAll(".checkbox");
+const percentElement = document.querySelector(".percent");
 const checkedSvg = document.querySelectorAll(".checked");
 const generateBtn = document.querySelector(".generate-btn");
 const generateInside = document.querySelector(".generate");
 
-charCount.innerText = inputRange.value;
+charCount.innerText = rangeInput.value;
+let lengthInput;
 
 const activeColor = "#A4FFAF";
 const inactiveColor = "#18171F";
 
-inputRange.addEventListener("input", function () {
+rangeInput.addEventListener("input", function () {
   const ratio = ((this.value - this.min) / (this.max - this.min)) * 100;
   this.style.background = `linear-gradient(90deg, ${activeColor} ${ratio}%, ${inactiveColor} ${ratio}%)`;
   charCount.innerText = this.value;
+  lengthInput = rangeInput.value;
+  console.log(lengthInput);
 });
 
-checked.forEach((checkbox, index) => {
+checkboxes.forEach((checkbox, index) => {
   let insideIndex = index;
   checkbox.addEventListener("click", () => {
     // Assume 'element' is the DOM element you want to check

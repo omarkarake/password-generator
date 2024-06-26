@@ -2,13 +2,13 @@ const generatedPassElement = document.querySelector(".generated-pass");
 const rangeInput = document.getElementById("inputRange");
 let charCount = document.getElementById("char-count");
 const checkboxes = document.querySelectorAll(".checkbox");
-const percentElement = document.querySelector(".percent");
 const checkedSvg = document.querySelectorAll(".checked");
 const generateBtn = document.querySelector(".generate-btn");
 const generateInside = document.querySelector(".generate");
 
 charCount.innerText = rangeInput.value;
 let lengthInput = rangeInput.value;
+let percent = 0;
 
 const activeColor = "#A4FFAF";
 const inactiveColor = "#18171F";
@@ -98,11 +98,12 @@ function generatePassword() {
 }
 
 function updateStrength() {
-  const selectedOptions = Array.from(checkboxes).filter(
-    (checkbox) => checkbox.checked
+  const selectedOptions = Array.from(checkboxes).filter((checkbox) =>
+    checkbox.classList.contains("checked-box")
   ).length;
   const percentage = (selectedOptions / checkboxes.length) * 100;
-  percentElement.textContent = `${percentage}%`;
+  percent = percentage;
+  console.log(percent);
 }
 
 generateBtn.addEventListener("click", generatePassword);

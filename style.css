@@ -96,6 +96,11 @@ body {
   visibility: hidden;
 }
 
+#copied {
+  width: 1.3125rem;
+  height: 1.5rem;
+}
+
 .before-copy,
 .after-copy {
   width: 1.3125rem;

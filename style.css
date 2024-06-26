@@ -162,3 +162,21 @@ body {
   border-radius: 50px;
   background: #06b6d4;
 }
+
+.option1,
+.option2,
+.option3,
+.option4 {
+  color: var(--color-almost-white);
+}
+
+.checkbox {
+  background-color: var(--color-very-dark-grey);
+  width: 20px;
+  height: 1.25rem;
+  border: 2px solid var(--color-almost-white);
+}
+
+.checked {
+  color: red;
+}

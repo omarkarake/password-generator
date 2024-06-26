@@ -96,10 +96,15 @@ body {
   visibility: hidden;
 }
 
-.copy img {
+.before-copy,
+.after-copy {
   width: 1.3125rem;
   height: 1.5rem;
-  color: white;
+  cursor: pointer;
+}
+
+.after-copy {
+  display: none;
 }
 
 .options {

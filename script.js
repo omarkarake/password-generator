@@ -1,3 +1,6 @@
+const beforeCopy = document.querySelector(".before-copy");
+const afterCopy = document.querySelector(".after-copy");
+const copied = document.querySelector("#copied");
 const generatedPassElement = document.querySelector(".generated-pass");
 const rangeInput = document.getElementById("inputRange");
 let charCount = document.getElementById("char-count");
@@ -10,6 +13,13 @@ const color1 = document.getElementById("strength-color1");
 const color2 = document.getElementById("strength-color2");
 const color3 = document.getElementById("strength-color3");
 const color4 = document.getElementById("strength-color4");
+
+beforeCopy.addEventListener("click", () => {
+  copied.style.visibility = "visible";
+  setTimeout(() => {
+    copied.style.visibility = "hidden";
+  }, 3000);
+});
 
 charCount.innerText = rangeInput.value;
 let lengthInput = rangeInput.value;

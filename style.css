@@ -163,11 +163,17 @@ body {
   background: #06b6d4;
 }
 
+.options {
+  padding: 0 2rem;
+}
+
 .option1,
 .option2,
 .option3,
 .option4 {
   color: var(--color-almost-white);
+  display: flex;
+  gap: 1.5rem;
 }
 
 .checkbox {
@@ -193,3 +199,12 @@ body {
 .show-checked {
   display: block;
 }
+
+.option-for-password {
+  margin-top: 2rem;
+  height: 9.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+

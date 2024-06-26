@@ -19,6 +19,13 @@ let tobeCopied;
 
 icons.addEventListener("click", async () => {
   try {
+    if (tobeCopied === undefined) {
+      generatedPassElement.textContent = "Please generate first...";
+      if (generatedPassElement.textContent.length > 20)
+        generatedPassElement.style.fontSize = "12px";
+      generatedPassElement.style.opacity = ".25";
+      return;
+    }
     await navigator.clipboard.writeText(tobeCopied);
     // Show the copied message
     copied.style.visibility = "visible";

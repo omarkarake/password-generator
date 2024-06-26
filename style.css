@@ -70,10 +70,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  /* background-color: red; */
+  padding: 1px;
+  width: 33.75rem;
 }
 .output {
   background-color: var(--color-dark-grey);
-  width: 33.75rem;
+  width: 100%;
   height: 5rem;
   display: flex;
   justify-content: space-between;
@@ -115,7 +118,7 @@ body {
 
 .options {
   background-color: var(--color-dark-grey);
-  width: 33.75rem;
+  width: 100%;
   height: 33rem;
 }
 
@@ -125,6 +128,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.char-length-text {
+  color: var(--color-almost-white);
 }
 
 .char-length-number {
@@ -299,4 +306,35 @@ body {
 .generate img {
   width: 0.75rem;
   height: 0.75rem;
+}
+
+@media screen and (max-width: 430px) {
+  .generator {
+    /* width: 343px; */
+    width: 95vw;
+    background-color: transparent;
+  }
+  .output {
+    height: 64px;
+  }
+  .generated-pass {
+    font-size: 1.5rem;
+  }
+  .char-num {
+    font-size: 24px;
+  }
+  .option1 p,
+  .option2 p,
+  .option3 p,
+  .option4 p {
+    font-size: 16px;
+  }
+
+  .medium-text {
+    font-size: 1.5rem;
+  }
+
+  .accuracy {
+    padding: 0 16px;
+  }
 }

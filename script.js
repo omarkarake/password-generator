@@ -2,7 +2,7 @@ const beforeCopy = document.querySelector(".before-copy");
 const afterCopy = document.querySelector(".after-copy");
 const copied = document.querySelector("#copied");
 const icons = document.querySelector(".icons");
-const generatedPassElement = document.querySelector(".generated-pass");
+let generatedPassElement = document.querySelector(".generated-pass");
 const rangeInput = document.getElementById("inputRange");
 let charCount = document.getElementById("char-count");
 const checkboxes = document.querySelectorAll(".checkbox");
@@ -15,11 +15,19 @@ const color2 = document.getElementById("strength-color2");
 const color3 = document.getElementById("strength-color3");
 const color4 = document.getElementById("strength-color4");
 
-icons.addEventListener("click", () => {
-  copied.style.visibility = "visible";
-  setTimeout(() => {
-    copied.style.visibility = "hidden";
-  }, 3000);
+let tobeCopied;
+
+icons.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(tobeCopied);
+    // Show the copied message
+    copied.style.visibility = "visible";
+    setTimeout(() => {
+      copied.style.visibility = "hidden";
+    }, 3000);
+  } catch (err) {
+    console.error("Failed to copy text: ", err);
+  }
 });
 
 icons.addEventListener("mouseover", () => {
@@ -129,6 +137,7 @@ function generatePassword() {
   generatedPassElement.textContent = password;
   generatedPassElement.style.fontSize = "2rem";
   generatedPassElement.style.opacity = "1";
+  tobeCopied = generatedPassElement.textContent;
   updateStrength();
 }
 

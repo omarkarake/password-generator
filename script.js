@@ -5,6 +5,7 @@ const checkboxes = document.querySelectorAll(".checkbox");
 const checkedSvg = document.querySelectorAll(".checked");
 const generateBtn = document.querySelector(".generate-btn");
 const generateInside = document.querySelector(".generate");
+const strengthIndicator = document.querySelector(".medium-text");
 const color1 = document.getElementById("strength-color1");
 const color2 = document.getElementById("strength-color2");
 const color3 = document.getElementById("strength-color3");
@@ -108,19 +109,22 @@ function updateStrength() {
   const percentage = (selectedOptions / checkboxes.length) * 100;
   percent = percentage;
   // Correctly assign the value of the custom property
+  //   if password strength is below 100 and up 75
   if (percent > 75 && percent >= 100) {
     color1.style.backgroundColor = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-neon-green");
     color2.style.backgroundColor = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-neon-green");
     color3.style.backgroundColor = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-neon-green");
     color4.style.backgroundColor = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-neon-green");
+    strengthIndicator.innerText = "STRONG";
+    //   if password strength is below 75 and up 50
   } else if (percent > 50 && percent >= 75) {
     color1.style.backgroundColor = getComputedStyle(
       document.documentElement
@@ -134,24 +138,28 @@ function updateStrength() {
     color4.style.backgroundColor = getComputedStyle(
       document.documentElement
     ).getPropertyValue("");
+    strengthIndicator.innerText = "MEDIUM";
+    //   if password strength is below 50 and up 25
   } else if (percent > 25 && percent >= 50) {
     color1.style.backgroundColor = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-orange");
     color2.style.backgroundColor = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-orange");
     color3.style.backgroundColor = getComputedStyle(
       document.documentElement
     ).getPropertyValue("");
     color4.style.backgroundColor = getComputedStyle(
       document.documentElement
     ).getPropertyValue("");
+    strengthIndicator.innerText = "WEAK";
+    //   if password strength is below or equal to 25
   } else if (percent <= 25) {
     console.log(color1);
     color1.style.backgroundColor = getComputedStyle(
       document.documentElement
-    ).getPropertyValue("--color-yellow");
+    ).getPropertyValue("--color-red");
     color2.style.backgroundColor = getComputedStyle(
       document.documentElement
     ).getPropertyValue("");
@@ -161,6 +169,7 @@ function updateStrength() {
     color4.style.backgroundColor = getComputedStyle(
       document.documentElement
     ).getPropertyValue("");
+    strengthIndicator.innerText = "TOO WEAK!";
   }
 }
 

@@ -240,9 +240,10 @@ body {
 
 .strengths {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  gap: 0.9375rem;
   align-items: center;
-  width: 10.4063rem;
+  width: 13.0625rem;
   height: 1.9375rem;
 }
 

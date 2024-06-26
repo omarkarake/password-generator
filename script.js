@@ -9,7 +9,6 @@ const generateInside = document.querySelector(".generate");
 
 charCount.innerText = rangeInput.value;
 let lengthInput = rangeInput.value;
-console.log(lengthInput);
 
 const activeColor = "#A4FFAF";
 const inactiveColor = "#18171F";
@@ -62,31 +61,28 @@ const numbers = "0123456789";
 const symbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
 function generatePassword() {
-  console.log("generate pass");
   let characterPool = "";
   let password = "";
   const length = parseInt(lengthInput);
 
   if (document.querySelector(".checkbox1").classList.contains("checked-box")) {
-    console.log("box one checked");
     characterPool += uppercaseLetters;
   }
 
   if (document.querySelector(".checkbox2").classList.contains("checked-box")) {
-    console.log("box two checked");
     characterPool += lowercaseLetters;
   }
   if (document.querySelector(".checkbox3").classList.contains("checked-box")) {
     characterPool += numbers;
-    console.log("box three checked");
   }
   if (document.querySelector(".checkbox4").classList.contains("checked-box")) {
-    console.log("box four checked");
     characterPool += symbols;
   }
 
   if (characterPool === "") {
     generatedPassElement.textContent = "Please select at least one option";
+    if (generatedPassElement.textContent.length > 20)
+      generatedPassElement.style.fontSize = "12px";
     return;
   }
 
@@ -97,6 +93,7 @@ function generatePassword() {
   }
 
   generatedPassElement.textContent = password;
+  generatedPassElement.style.fontSize = "2rem";
   updateStrength();
 }
 

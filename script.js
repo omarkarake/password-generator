@@ -94,6 +94,7 @@ function generatePassword() {
     generatedPassElement.textContent = "Please increase character length";
     if (generatedPassElement.textContent.length > 20)
       generatedPassElement.style.fontSize = "12px";
+    generatedPassElement.style.opacity = ".25";
     return;
   }
 
@@ -115,6 +116,7 @@ function generatePassword() {
     generatedPassElement.textContent = "Please select at least one option";
     if (generatedPassElement.textContent.length > 20)
       generatedPassElement.style.fontSize = "12px";
+    generatedPassElement.style.opacity = ".25";
     return;
   }
 
@@ -126,6 +128,7 @@ function generatePassword() {
 
   generatedPassElement.textContent = password;
   generatedPassElement.style.fontSize = "2rem";
+  generatedPassElement.style.opacity = "1";
   updateStrength();
 }
 

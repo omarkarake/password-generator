@@ -83,6 +83,7 @@ body {
 
 .generated-pass {
   color: var(--color-almost-white);
+  opacity: 0.25;
 }
 
 .copy {

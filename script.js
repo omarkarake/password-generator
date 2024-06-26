@@ -8,7 +8,8 @@ const generateBtn = document.querySelector(".generate-btn");
 const generateInside = document.querySelector(".generate");
 
 charCount.innerText = rangeInput.value;
-let lengthInput;
+let lengthInput = rangeInput.value;
+console.log(lengthInput);
 
 const activeColor = "#A4FFAF";
 const inactiveColor = "#18171F";
@@ -18,24 +19,23 @@ rangeInput.addEventListener("input", function () {
   this.style.background = `linear-gradient(90deg, ${activeColor} ${ratio}%, ${inactiveColor} ${ratio}%)`;
   charCount.innerText = this.value;
   lengthInput = rangeInput.value;
-  console.log(lengthInput);
 });
 
 checkboxes.forEach((checkbox, index) => {
   let insideIndex = index;
   checkbox.addEventListener("click", () => {
-    // Assume 'element' is the DOM element you want to check
     if (checkbox.hasAttribute("style")) {
       checkbox.removeAttribute("style");
       checkedSvg.forEach((svg, index) => {
         if (index === insideIndex) {
           svg.classList.remove("show-checked");
+          checkbox.classList.remove("checked-box");
         }
       });
     } else {
-      console.log("The element does not have a style attribute.");
       checkbox.style.backgroundColor = "var(--color-neon-green)";
       checkbox.style.border = "2px solid var(--color-neon-green)";
+      checkbox.classList.add("checked-box");
       checkedSvg.forEach((svg, index) => {
         if (index === insideIndex) {
           svg.classList.add("show-checked");
@@ -46,7 +46,6 @@ checkboxes.forEach((checkbox, index) => {
 });
 
 generateBtn.addEventListener("mouseover", () => {
-  console.log("mouse over generate");
   generateInside.innerHTML = `<p>GENERATE</p><img
                  src="./assets/images/icon-arrow-right-neon-green.svg"
                  class="icon-right"
@@ -54,6 +53,59 @@ generateBtn.addEventListener("mouseover", () => {
 });
 
 generateBtn.addEventListener("mouseout", () => {
-  console.log("mouse out generate");
   generateInside.innerHTML = `<p>GENERATE</p><img src="./assets/images/icon-arrow-right.svg" class="icon-right"/>`;
 });
+
+const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
+const numbers = "0123456789";
+const symbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+function generatePassword() {
+  console.log("generate pass");
+  let characterPool = "";
+  let password = "";
+  const length = parseInt(lengthInput);
+
+  if (document.querySelector(".checkbox1").classList.contains("checked-box")) {
+    console.log("box one checked");
+    characterPool += uppercaseLetters;
+  }
+
+  if (document.querySelector(".checkbox2").classList.contains("checked-box")) {
+    console.log("box two checked");
+    characterPool += lowercaseLetters;
+  }
+  if (document.querySelector(".checkbox3").classList.contains("checked-box")) {
+    characterPool += numbers;
+    console.log("box three checked");
+  }
+  if (document.querySelector(".checkbox4").classList.contains("checked-box")) {
+    console.log("box four checked");
+    characterPool += symbols;
+  }
+
+  if (characterPool === "") {
+    generatedPassElement.textContent = "Please select at least one option";
+    return;
+  }
+
+  for (let i = 0; i < length; i++) {
+    password += characterPool.charAt(
+      Math.floor(Math.random() * characterPool.length)
+    );
+  }
+
+  generatedPassElement.textContent = password;
+  updateStrength();
+}
+
+function updateStrength() {
+  const selectedOptions = Array.from(checkboxes).filter(
+    (checkbox) => checkbox.checked
+  ).length;
+  const percentage = (selectedOptions / checkboxes.length) * 100;
+  percentElement.textContent = `${percentage}%`;
+}
+
+generateBtn.addEventListener("click", generatePassword);

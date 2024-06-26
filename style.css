@@ -319,6 +319,7 @@ body {
   }
   .output {
     height: 64px;
+    padding: 0 1rem;
   }
 
   .options {

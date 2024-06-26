@@ -128,7 +128,7 @@ function generatePassword() {
   }
 
   if (characterPool === "") {
-    generatedPassElement.textContent = "Please select at least one option";
+    generatedPassElement.textContent = "Select at least one option";
     if (generatedPassElement.textContent.length > 20)
       generatedPassElement.style.fontSize = "12px";
     generatedPassElement.style.opacity = ".25";

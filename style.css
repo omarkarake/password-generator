@@ -132,6 +132,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 2.6875rem;
+  margin-top: 1.5rem;
 }
 
 .char-num {
@@ -140,6 +141,7 @@ body {
 
 .range-div {
   height: 1.75rem;
+  margin-top: 1rem;
 }
 
 .inputRange {
@@ -217,7 +219,7 @@ body {
 }
 
 .option-for-password {
-  margin-top: 2rem;
+  margin-top: 3rem;
   height: 9.5rem;
   display: flex;
   flex-direction: column;

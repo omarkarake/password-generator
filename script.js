@@ -137,12 +137,15 @@ function updateStrength() {
 // Event listener to generate password when button is clicked
 generateBtn.addEventListener("click", generatePassword);
 
-// Helper functions
+// Helper
+
+// function to help to toggle between whether we copied or not
 function toggleCopyIcons(showBefore) {
   beforeCopy.style.display = showBefore ? "block" : "none";
   afterCopy.style.display = showBefore ? "none" : "block";
 }
 
+// function help us to toggle the checkbox
 function toggleCheckbox(checkbox, index) {
   const checked = checkbox.classList.toggle("checked-box");
   checkbox.style.backgroundColor = checked ? "var(--color-neon-green)" : "";
@@ -150,12 +153,14 @@ function toggleCheckbox(checkbox, index) {
   checkedSvg[index].classList.toggle("show-checked", checked);
 }
 
+// function to help us render the hover effect and show whether the hover take effect or not
 function updateGenerateButton(hover) {
   generateInside.innerHTML = `<p>GENERATE</p><img src="./assets/images/icon-arrow-right${
     hover ? "-neon-green" : ""
   }.svg" class="icon-right"/>`;
 }
 
+// function to help showing generated password to the paragraph of generated-pass div class
 function setGeneratedPassElementText(text, reset = false) {
   generatedPassElement.textContent = text;
   if (reset) {
@@ -166,7 +171,7 @@ function setGeneratedPassElementText(text, reset = false) {
     generatedPassElement.style.opacity = ".25";
   }
 }
-
+// function to help visibility show when copied
 function showCopiedMessage() {
   copied.style.visibility = "visible";
   setTimeout(() => {

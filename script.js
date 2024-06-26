@@ -2,6 +2,8 @@ const inputRange = document.getElementById("inputRange");
 let charCount = document.getElementById("char-count");
 const checked = document.querySelectorAll(".checkbox");
 const checkedSvg = document.querySelectorAll(".checked");
+const generateBtn = document.querySelector(".generate-btn");
+const generateInside = document.querySelector(".generate");
 
 charCount.innerText = inputRange.value;
 
@@ -36,4 +38,17 @@ checked.forEach((checkbox, index) => {
       });
     }
   });
+});
+
+generateBtn.addEventListener("mouseover", () => {
+  console.log("mouse over generate");
+  generateInside.innerHTML = `<p>GENERATE</p><img
+                 src="./assets/images/icon-arrow-right-neon-green.svg"
+                 class="icon-right"
+             />`;
+});
+
+generateBtn.addEventListener("mouseout", () => {
+  console.log("mouse out generate");
+  generateInside.innerHTML = `<p>GENERATE</p><img src="./assets/images/icon-arrow-right.svg" class="icon-right"/>`;
 });

@@ -309,6 +309,9 @@ body {
 }
 
 @media screen and (max-width: 430px) {
+  .app {
+    margin: 1rem;
+  }
   .generator {
     /* width: 343px; */
     width: 95vw;
@@ -316,6 +319,10 @@ body {
   }
   .output {
     height: 64px;
+  }
+
+  .options {
+    padding: 0 1rem;
   }
   .generated-pass {
     font-size: 1.5rem;

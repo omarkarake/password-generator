@@ -227,7 +227,8 @@ body {
 .strength4 {
   width: 0.625rem;
   height: 1.75rem;
-  background-color: var(--color-yellow);
+  border: 2px solid var(--color-almost-white);
+  /* background-color: var(--color-yellow); */
 }
 
 .accuracy {

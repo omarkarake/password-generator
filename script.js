@@ -5,6 +5,10 @@ const checkboxes = document.querySelectorAll(".checkbox");
 const checkedSvg = document.querySelectorAll(".checked");
 const generateBtn = document.querySelector(".generate-btn");
 const generateInside = document.querySelector(".generate");
+const color1 = document.getElementById("strength-color1");
+const color2 = document.getElementById("strength-color2");
+const color3 = document.getElementById("strength-color3");
+const color4 = document.getElementById("strength-color4");
 
 charCount.innerText = rangeInput.value;
 let lengthInput = rangeInput.value;
@@ -103,7 +107,61 @@ function updateStrength() {
   ).length;
   const percentage = (selectedOptions / checkboxes.length) * 100;
   percent = percentage;
-  console.log(percent);
+  // Correctly assign the value of the custom property
+  if (percent > 75 && percent >= 100) {
+    color1.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color2.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color3.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color4.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+  } else if (percent > 50 && percent >= 75) {
+    color1.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color2.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color3.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color4.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("");
+  } else if (percent > 25 && percent >= 50) {
+    color1.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color2.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color3.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("");
+    color4.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("");
+  } else if (percent <= 25) {
+    console.log(color1);
+    color1.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--color-yellow");
+    color2.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("");
+    color3.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("");
+    color4.style.backgroundColor = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("");
+  }
 }
 
 generateBtn.addEventListener("click", generatePassword);
